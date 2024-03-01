@@ -1,4 +1,6 @@
 import Editor from "./components/Editor";
+import Output from "./components/Output";
+import HeaderOptions from "./components/HeaderOptions";
 import { useState } from "react";
 import { calculate, selectOptions } from "./utils/calculate";
 
@@ -38,46 +40,23 @@ function App() {
 
   return (
     <div className="app">
-      <div>
-        <div className="app__input">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => handleInputChange(e)}
-          />
-          <button onClick={() => handleClear()} className="clearButton-width">
-            Clear
-          </button>
-        </div>
-        <div className="app__options">
-          <select onChange={(e) => handleOptionChange(e)}>
-            {selectOptions.map((option) => (
-              <option key={option.key} value={option.value}>
-                {option.value}
-              </option>
-            ))}
-          </select>
-          <button onClick={() => handleSubmit()} className="submitButton-width">
-            Submit
-          </button>
-        </div>
-      </div>
-      {output && (
-        <p>
-          Output: <>{output}</>
-        </p>
-      )}
-      {showEditor && (
-        <div className="app__editor">
-          <Editor
-            solution={solution}
-            editedSolution={editedSolution}
-            input={input}
-            setEditedSolution={setEditedSolution}
-            setOutput={setOutput}
-          />
-        </div>
-      )}
+      <HeaderOptions
+        input={input}
+        selectOptions={selectOptions}
+        handleInputChange={handleInputChange}
+        handleClear={handleClear}
+        handleOptionChange={handleOptionChange}
+        handleSubmit={handleSubmit}
+      />
+      <Output output={output} />
+      <Editor
+        showEditor={showEditor}
+        solution={solution}
+        editedSolution={editedSolution}
+        input={input}
+        setEditedSolution={setEditedSolution}
+        setOutput={setOutput}
+      />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { editor } from "../utils/editor";
 
 type EditorProps = {
+  showEditor: boolean;
   solution: string;
   editedSolution: string;
   input: string | number;
@@ -10,6 +11,7 @@ type EditorProps = {
 };
 
 function Editor({
+  showEditor,
   solution,
   editedSolution,
   input,
@@ -26,20 +28,26 @@ function Editor({
   };
 
   return (
-    <div className="editor-container">
-      <p>Solution: </p>
-      <textarea
-        id="editor"
-        className="editor"
-        value={editedSolution}
-        onChange={(e) => handleSolutionChange(e)}
-      ></textarea>
-      <button
-        onClick={() => handleEditedSolution()}
-        disabled={solution === editedSolution}
-      >
-        Run
-      </button>
+    <div>
+      {showEditor && (
+        <div className="app__editor">
+          <div className="editor-container">
+            <p>Solution: </p>
+            <textarea
+              id="editor"
+              className="editor"
+              value={editedSolution}
+              onChange={(e) => handleSolutionChange(e)}
+            ></textarea>
+            <button
+              onClick={() => handleEditedSolution()}
+              disabled={solution === editedSolution}
+            >
+              Run
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
