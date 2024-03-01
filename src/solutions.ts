@@ -7,17 +7,27 @@ interface ISolutionFunctions {
 }
 
 const containsDuplicate = ({ input, setOutput }: ISolutionFunctions) => {
-  let boolean = false;
+  //   using set
+  //   let boolean = false;
+  //   const set = new Set(splitInput);
+  //   if (set.size !== splitInput.length) {
+  //     boolean = true;
+  //   }
+  //   setOutput(
+  //     `${!boolean ? "No" : "Yes"}, It ${
+  //       !boolean ? "does't" : "does"
+  //     } contains duplicate`
+  //   );
+
   const splitInput = input.toString().split("");
-  const set = new Set(splitInput);
-  if (set.size !== splitInput.length) {
-    boolean = true;
+  const numericInput = splitInput.map(Number);
+  const sortInput = numericInput.sort((a, b) => a - b);
+  for (let i = 0; i < sortInput.length; i++) {
+    if (sortInput[i] === sortInput[i + 1]) {
+      return setOutput("Yes, It contains duplicate");
+    }
   }
-  setOutput(
-    `${!boolean ? "No" : "Yes"}, It ${
-      !boolean ? "does't" : ""
-    } contains duplicate`
-  );
+  return setOutput("No, It does't contains duplicate");
 };
 
 const validAnagram = ({ input, setOutput }: ISolutionFunctions) => {
