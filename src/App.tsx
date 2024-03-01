@@ -62,7 +62,11 @@ function App() {
           </button>
         </div>
       </div>
-      <div className="app__output">Output: {output && <>{output}</>}</div>
+      {output && (
+        <p>
+          Output: <>{output}</>
+        </p>
+      )}
       {showEditor && (
         <div className="app__editor">
           <Editor

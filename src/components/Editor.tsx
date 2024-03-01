@@ -27,6 +27,7 @@ function Editor({
 
   return (
     <div className="editor-container">
+      <p>Solution: </p>
       <textarea
         id="editor"
         className="editor"

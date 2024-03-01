@@ -97,8 +97,9 @@ input {
   overflow: auto;
 }
 
-.app__output {
+p {
   color: #ccc;
+  margin: 0;
 }
 
 .submitButton-width {
