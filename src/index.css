@@ -10,3 +10,31 @@
   justify-content: center;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
+.app__editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.editor-container {
+  margin: 20px;
+}
+
+.editor {
+  width: 50vh;
+  height: 50vh;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #242424;
+  color: #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  overflow: auto;
+}
