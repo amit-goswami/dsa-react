@@ -1,9 +1,20 @@
 import { Dispatch, SetStateAction } from "react";
 import { solutions } from "./solutions";
 
+export enum SelectOptionsValues {
+  ContainsDuplicate = "Contains Duplicate",
+  ValidAnagram = "Valid Anagram",
+}
+
 export const selectOptions = [
-  { key: 0, value: "Contains Duplicate", label: "Contains Duplicate" },
-  { key: 1, value: "Valid Anagram", label: "Valid Anagram" },
+  {
+    key: 0,
+    value: SelectOptionsValues.ContainsDuplicate,
+  },
+  {
+    key: 1,
+    value: SelectOptionsValues.ValidAnagram,
+  },
 ];
 
 export const calculate = (
@@ -12,10 +23,10 @@ export const calculate = (
   setOutput: Dispatch<SetStateAction<string | null>>
 ) => {
   switch (selectOptions) {
-    case "Contains Duplicate":
+    case SelectOptionsValues.ContainsDuplicate:
       solutions.containsDuplicate({ input, setOutput });
       break;
-    case "Valid Anagram":
+    case SelectOptionsValues.ValidAnagram:
       solutions.validAnagram({ input, setOutput });
       break;
     default:

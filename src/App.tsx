@@ -32,7 +32,7 @@ function App() {
       <select onChange={(e) => handleOptionChange(e)}>
         {selectOptions.map((option) => (
           <option key={option.key} value={option.value}>
-            {option.label}
+            {option.value}
           </option>
         ))}
       </select>

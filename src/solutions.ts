@@ -7,8 +7,17 @@ interface ISolutionFunctions {
 }
 
 const containsDuplicate = ({ input, setOutput }: ISolutionFunctions) => {
-  console.log(input, setOutput);
-  setOutput("Contains Duplicate");
+  let boolean = false;
+  const splitInput = input.toString().split("");
+  const set = new Set(splitInput);
+  if (set.size !== splitInput.length) {
+    boolean = true;
+  }
+  setOutput(
+    `${!boolean ? "No" : "Yes"}, It ${
+      !boolean ? "does't" : ""
+    } contains duplicate`
+  );
 };
 
 const validAnagram = ({ input, setOutput }: ISolutionFunctions) => {
