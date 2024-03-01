@@ -1,7 +1,6 @@
 import Editor from "./components/Editor";
 import { useState } from "react";
 import { calculate, selectOptions } from "./utils/calculate";
-import { editor } from "./utils/editor";
 
 function App() {
   const [input, setInput] = useState<string | number>("");
@@ -37,36 +36,42 @@ function App() {
     calculate(input, selectedOption, setOutput, setSolution, setEditedSolution);
   };
 
-  const handleEditedSolution = () => {
-    if (!editedSolution || !selectOptions) return;
-    editor(input, editedSolution, setOutput);
-  };
-
   return (
-    <div>
-      <input type="text" value={input} onChange={(e) => handleInputChange(e)} />
-      <button onClick={() => handleClear()}>Clear</button>
-      <select onChange={(e) => handleOptionChange(e)}>
-        {selectOptions.map((option) => (
-          <option key={option.key} value={option.value}>
-            {option.value}
-          </option>
-        ))}
-      </select>
-      <button onClick={() => handleSubmit()}>Submit</button>
-      <p>Output {output && <>{output}</>}</p>
+    <div className="app">
+      <div>
+        <div className="app__input">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => handleInputChange(e)}
+          />
+          <button onClick={() => handleClear()} className="clearButton-width">
+            Clear
+          </button>
+        </div>
+        <div className="app__options">
+          <select onChange={(e) => handleOptionChange(e)}>
+            {selectOptions.map((option) => (
+              <option key={option.key} value={option.value}>
+                {option.value}
+              </option>
+            ))}
+          </select>
+          <button onClick={() => handleSubmit()} className="submitButton-width">
+            Submit
+          </button>
+        </div>
+      </div>
+      <div className="app__output">Output: {output && <>{output}</>}</div>
       {showEditor && (
         <div className="app__editor">
           <Editor
+            solution={solution}
             editedSolution={editedSolution}
+            input={input}
             setEditedSolution={setEditedSolution}
+            setOutput={setOutput}
           />
-          <button
-            onClick={() => handleEditedSolution()}
-            disabled={solution === editedSolution}
-          >
-            Run
-          </button>
         </div>
       )}
     </div>
