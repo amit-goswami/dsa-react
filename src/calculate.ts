@@ -18,7 +18,7 @@ export const selectOptions = [
 ];
 
 export const calculate = (
-  input: string | number | readonly string[],
+  input: string | number,
   selectOptions: string | null,
   setOutput: Dispatch<SetStateAction<string | null>>
 ) => {

@@ -1,4 +1,4 @@
-type Input = string | number | readonly string[];
+type Input = string | number;
 type SetOutput = (value: string | null) => void;
 
 interface ISolutionFunctions {
@@ -24,7 +24,7 @@ const containsDuplicate = ({ input, setOutput }: ISolutionFunctions) => {
   const sortInput = numericInput.sort((a, b) => a - b);
   for (let i = 0; i < sortInput.length; i++) {
     if (sortInput[i] === sortInput[i + 1]) {
-      return setOutput("Yes, It contains duplicate");
+      return setOutput("Yes, It does contains duplicate");
     }
   }
   return setOutput("No, It does't contains duplicate");

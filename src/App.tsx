@@ -2,7 +2,7 @@ import { useState } from "react";
 import { calculate, selectOptions } from "./calculate";
 
 function App() {
-  const [input, setInput] = useState<string | number | readonly string[]>("");
+  const [input, setInput] = useState<string | number>("");
   const [output, setOutput] = useState<string | null>(null);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
