@@ -4,6 +4,7 @@ import { solutions } from "./solutions";
 export enum SelectOptionsValues {
   ContainsDuplicate = "Contains Duplicate",
   ValidAnagram = "Valid Anagram",
+  FactorialOfNumber = "Factorial of a Number",
 }
 
 export const selectOptions = [
@@ -14,6 +15,10 @@ export const selectOptions = [
   {
     key: 1,
     value: SelectOptionsValues.ValidAnagram,
+  },
+  {
+    key: 2,
+    value: SelectOptionsValues.FactorialOfNumber,
   },
 ];
 
@@ -36,6 +41,12 @@ export const calculate = (
       const validAnagramSolution = solutions.validAnagram.toString();
       setSolution(validAnagramSolution);
       setEditedSolution(validAnagramSolution);
+      break;
+    case SelectOptionsValues.FactorialOfNumber:
+      solutions.factorialOfNumber({ input, setOutput });
+      const factorialOfNumberSolution = solutions.factorialOfNumber.toString();
+      setSolution(factorialOfNumberSolution);
+      setEditedSolution(factorialOfNumberSolution);
       break;
     default:
       solutions.containsDuplicate({ input, setOutput });

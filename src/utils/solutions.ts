@@ -6,8 +6,16 @@ interface ISolutionFunctions {
   setOutput: SetOutput;
 }
 
-const sort = (input: string | number) => {
-  const splitInput = input.toString().split("");
+const stringToArray = (input: string) => {
+  return input.split("");
+};
+
+const numberToArray = (input: number) => {
+  return input.toString().split("");
+};
+
+const sortStringOfNumber = (input: number) => {
+  const splitInput = numberToArray(input);
   const numericInput = splitInput.map(Number);
   return numericInput.sort((a, b) => a - b);
 };
@@ -128,19 +136,19 @@ const countingSort = (input: string | number) => {
 };
 
 const containsDuplicate = ({ input, setOutput }: ISolutionFunctions) => {
-  //   using set
-  //   let boolean = false;
-  //   const set = new Set(splitInput);
-  //   if (set.size !== splitInput.length) {
-  //     boolean = true;
-  //   }
-  //   setOutput(
-  //     `${!boolean ? "No" : "Yes"}, It ${
-  //       !boolean ? "does't" : "does"
-  //     } contains duplicate`
-  //   );
+  // let boolean = false;
+  // const splitInput = input.toString().split("");
+  // const set = new Set(splitInput);
+  // if (set.size !== splitInput.length) {
+  //   boolean = true;
+  // }
+  // setOutput(
+  //   `${!boolean ? "No" : "Yes"}, It ${
+  //     !boolean ? "does't" : "does"
+  //   } contains duplicate`
+  // );
 
-  const sortInput = sort(input);
+  const sortInput = sortStringOfNumber(input as number);
   for (let i = 0; i < sortInput.length; i++) {
     if (sortInput[i] === sortInput[i + 1]) {
       return setOutput("Yes, It does contains duplicate");
@@ -154,8 +162,21 @@ const validAnagram = ({ input, setOutput }: ISolutionFunctions) => {
   setOutput("Valid Anagram");
 };
 
+const factorialOfNumber = ({ input, setOutput }: ISolutionFunctions) => {
+  const recursiceFactorial = (n: number): number => {
+    if (n === 0) return 1;
+    return n * recursiceFactorial(n - 1);
+  };
+  setOutput(recursiceFactorial(input as number).toString());
+};
+
+const conversionFunctions = {
+  stringToArray,
+  numberToArray,
+};
+
 const sortingAlgorithms = {
-  sort,
+  sortStringOfNumber,
   bubbleSort,
   selectionSort,
   insertionSort,
@@ -165,7 +186,9 @@ const sortingAlgorithms = {
 };
 
 export const solutions = {
+  conversionFunctions,
   sortingAlgorithms,
   containsDuplicate,
   validAnagram,
+  factorialOfNumber,
 };
