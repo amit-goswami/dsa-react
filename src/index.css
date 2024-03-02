@@ -1,13 +1,21 @@
 :root {
   background-color: #242424;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  width: 60vh;
+  background-color: #333333;
+  border-radius: 5px;
 }
 
 button {
@@ -48,7 +56,7 @@ input {
   width: 100%;
 }
 
-.app__options{
+.app__options {
   display: flex;
   gap: 20px;
 }
@@ -100,9 +108,17 @@ p {
 }
 
 .submitButton-width {
-  width: 100px
+  width: 100px;
 }
 
 .clearButton-width {
-  width: 104px
+  width: 104px;
+}
+
+.not__authenticated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
