@@ -22,8 +22,13 @@ const HeaderOptions = ({
           type="text"
           value={input}
           onChange={(e) => handleInputChange(e)}
+          placeholder="Enter an input..."
         />
-        <button onClick={() => handleClear()} className="clearButton-width">
+        <button
+          onClick={() => handleClear()}
+          disabled={input === ""}
+          className="clearButton-width"
+        >
           Clear
         </button>
       </div>
@@ -35,7 +40,11 @@ const HeaderOptions = ({
             </option>
           ))}
         </select>
-        <button onClick={() => handleSubmit()} className="submitButton-width">
+        <button
+          onClick={() => handleSubmit()}
+          disabled={!input}
+          className="submitButton-width"
+        >
           Submit
         </button>
       </div>

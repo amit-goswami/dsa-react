@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { toast } from "react-hot-toast";
 
 export const editor = (
   input: string | number,
@@ -10,7 +11,7 @@ export const editor = (
     const output = solution(input);
     setOutput(output);
   } catch (error) {
-    alert(error);
+    toast.error("" + error);
     setOutput(null);
   }
 };

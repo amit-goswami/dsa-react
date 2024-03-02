@@ -11,7 +11,6 @@
 }
 
 button {
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   padding: 10px;
@@ -28,7 +27,6 @@ button:disabled {
 }
 
 select {
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   padding: 10px;
@@ -40,7 +38,6 @@ select {
 }
 
 input {
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   padding: 10px;
@@ -107,5 +104,5 @@ p {
 }
 
 .clearButton-width {
-  width: 106px
+  width: 104px
 }
