@@ -20,8 +20,8 @@ const sortStringOfNumber = (input: number) => {
   return numericInput.sort((a, b) => a - b);
 };
 
-const bubbleSort = (input: string | number) => {
-  const splitInput = input.toString().split("");
+const bubbleSort = (input: number) => {
+  const splitInput = numberToArray(input);
   const numericInput = splitInput.map(Number);
   for (let i = 0; i < numericInput.length; i++) {
     for (let j = 0; j < numericInput.length - i - 1; j++) {
@@ -136,6 +136,7 @@ const countingSort = (input: string | number) => {
 };
 
 const containsDuplicate = ({ input, setOutput }: ISolutionFunctions) => {
+  // using set
   // let boolean = false;
   // const splitInput = input.toString().split("");
   // const set = new Set(splitInput);
@@ -158,8 +159,13 @@ const containsDuplicate = ({ input, setOutput }: ISolutionFunctions) => {
 };
 
 const validAnagram = ({ input, setOutput }: ISolutionFunctions) => {
-  console.log(input, setOutput);
-  setOutput("Valid Anagram");
+  const [firstWord, secondWord] = input.toString().split(" ");
+  const firstWordArray = firstWord.split("").sort().join("");
+  const secondWordArray = secondWord.split("").sort().join("");
+  if (firstWordArray === secondWordArray) {
+    return setOutput("Yes, It is a valid anagram");
+  }
+  return setOutput("No, It is not a valid anagram");
 };
 
 const factorialOfNumber = ({ input, setOutput }: ISolutionFunctions) => {
