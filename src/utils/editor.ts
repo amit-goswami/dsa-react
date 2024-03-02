@@ -1,10 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
 import { toast } from "react-hot-toast";
 
 export const editor = (
   input: string | number,
   editedSolution: string,
-  setOutput: Dispatch<SetStateAction<string | null>>
+  setOutput: (output: string | null) => void
 ) => {
   try {
     const solution = new Function("editorFunction", editedSolution);

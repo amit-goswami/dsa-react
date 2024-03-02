@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import { solutions } from "./solutions";
 
 export enum SelectOptionsValues {
@@ -25,9 +24,9 @@ export const selectOptions = [
 export const calculate = (
   input: string | number,
   selectOptions: string | null,
-  setOutput: Dispatch<SetStateAction<string | null>>,
-  setSolution: Dispatch<SetStateAction<string>>,
-  setEditedSolution: Dispatch<SetStateAction<string>>
+  setOutput: (output: string | null) => void,
+  setSolution: (solution: string) => void,
+  setEditedSolution: (editedSolution: string) => void
 ) => {
   switch (selectOptions) {
     case SelectOptionsValues.ContainsDuplicate:

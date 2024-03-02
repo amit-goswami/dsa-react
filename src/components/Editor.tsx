@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import { editor } from "../utils/editor";
 
 type EditorProps = {
@@ -7,7 +6,7 @@ type EditorProps = {
   editedSolution: string;
   input: string | number;
   setEditedSolution: (value: string) => void;
-  setOutput: Dispatch<SetStateAction<string | null>>;
+  setOutput: (output: string | null) => void;
 };
 
 function Editor({

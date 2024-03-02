@@ -1,16 +1,22 @@
+import useAppStore from "./store/app.store";
 import Editor from "./components/Editor";
 import Output from "./components/Output";
 import HeaderOptions from "./components/HeaderOptions";
-import { useState } from "react";
 import { calculate, selectOptions } from "./utils/calculate";
 
 function App() {
-  const [input, setInput] = useState<string | number>("");
-  const [output, setOutput] = useState<string | null>(null);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [showEditor, setShowEditor] = useState<boolean>(false);
-  const [solution, setSolution] = useState<string>("");
-  const [editedSolution, setEditedSolution] = useState<string>("");
+  const { input } = useAppStore();
+  const { output } = useAppStore();
+  const { showEditor } = useAppStore();
+  const { solution } = useAppStore();
+  const { editedSolution } = useAppStore();
+  const { selectedOption } = useAppStore();
+  const { setInput } = useAppStore();
+  const { setOutput } = useAppStore();
+  const { setShowEditor } = useAppStore();
+  const { setSolution } = useAppStore();
+  const { setEditedSolution } = useAppStore();
+  const { setSelectedOption } = useAppStore();
 
   const handleClear = () => {
     setInput("");
