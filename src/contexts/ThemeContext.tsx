@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "../components/Loading";
 
 interface IThemeContext {
   theme: string;
@@ -12,6 +13,7 @@ const ThemeContext = React.createContext<IThemeContext>({
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = React.useState("dark");
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     document.body.classList.remove("light-theme", "dark-theme");
@@ -19,12 +21,16 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    setLoading(true);
+    setTimeout(() => {
+      setTheme((prev) => (prev === "light" ? "dark" : "light"));
+      setLoading(false);
+    }, 400);
   };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
+      {loading ? <Loading /> : children}
     </ThemeContext.Provider>
   );
 };
