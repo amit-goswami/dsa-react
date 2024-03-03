@@ -11,6 +11,7 @@ export enum LOGIN_TOKEN {
 }
 
 export enum AUTH_MESSAGE {
+  TOKEN_REQUIRED = "Token is required",
   INVALID_TOKEN = "Invalid token",
   USER_LOGGED_IN = "User logged in successfully",
   USER_LOGGED_OUT = "User logged out successfully",

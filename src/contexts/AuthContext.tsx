@@ -33,7 +33,8 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = () => {
     const token = prompt("Enter your token");
-    if (!token || token !== LOGIN_TOKEN.TOKEN)
+    if (!token) return toast.error(AUTH_MESSAGE.TOKEN_REQUIRED);
+    if (token !== LOGIN_TOKEN.TOKEN)
       return toast.error(AUTH_MESSAGE.INVALID_TOKEN);
     setItem(token);
     setUser({
