@@ -51,9 +51,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 
   const checkIsUserLoggedIn = () => {
     const token = getItem();
-    if (!token) {
-      return setUser(null);
-    }
+    if (!token) return setUser(null);
     return setUser({ name: null });
   };
 
