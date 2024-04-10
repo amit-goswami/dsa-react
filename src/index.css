@@ -4,6 +4,7 @@
   --button-background: #333333;
   --button-text: #ccc;
   --border-color: #333333;
+  user-select: none;
 }
 
 .light-theme {
@@ -75,6 +76,8 @@ input {
   gap: 20px;
   padding: 20px;
   width: 50vh;
+  flex: 1;
+  height: 75vh;
 }
 
 .app__editor {
@@ -145,4 +148,24 @@ p {
   justify-content: center;
   height: 100vh;
   width: 100vw;
+}
+
+.gap {
+  gap: 20px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.flex-row {
+  display: flex;
+  padding: 10px 0px;
+  gap: 20px;
 }

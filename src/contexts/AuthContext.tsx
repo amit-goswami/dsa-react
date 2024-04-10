@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import NotAuthenticated from "../components/NotAuthenticated";
+import NotAuthenticated from "../components/shared/NotAuthenticated";
 import React, { ReactNode, useContext, useEffect, useState } from "react";
 import {
   AUTH_MESSAGE,
@@ -11,7 +11,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface IAuthContext {
   user: IUser | null;
-  loading: Boolean;
+  loading: boolean;
   signIn: () => string | undefined;
   logOut: () => void;
 }
@@ -25,7 +25,7 @@ const AuthContext = React.createContext<IAuthContext>({
 
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<IUser | null>(null);
-  const [loading, setLoading] = useState<Boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const { getItem, removeItem, setItem } = useLocalStorage(
     USELOCAL_STORAGE.USER_TOKEN
@@ -50,7 +50,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const checkIsUserLoggedIn = () => {
-    const token = getItem();
+    const token = getItem() === LOGIN_TOKEN.TOKEN;
     if (!token) return setUser(null);
     return setUser({ name: null });
   };

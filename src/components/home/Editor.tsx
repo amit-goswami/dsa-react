@@ -1,4 +1,4 @@
-import { editor } from "../utils/editor";
+import { editor } from "../../utils/editor";
 
 type EditorProps = {
   showEditor: boolean;

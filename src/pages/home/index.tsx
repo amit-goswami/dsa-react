@@ -1,9 +1,10 @@
-import Editor from "../components/Editor";
-import HeaderOptions from "../components/HeaderOptions";
-import Output from "../components/Output";
-import withLoggedInOnly from "../middlewares/withLoggedInOnly";
-import useAppStore from "../store/app.store";
-import { calculate, selectOptions } from "../utils/calculate";
+import React from "react";
+import Editor from "../../components/home/Editor";
+import HeaderOptions from "../../components/home/HeaderOptions";
+import Output from "../../components/home/Output";
+import withLoggedInOnly from "../../middlewares/withLoggedInOnly";
+import useAppStore from "../../store/app.store";
+import { calculate, selectOptions } from "../../utils/calculate";
 
 const HomePage = () => {
   const { input } = useAppStore();
@@ -46,7 +47,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="app">
+    <React.Fragment>
       <HeaderOptions
         input={input}
         selectOptions={selectOptions}
@@ -64,7 +65,7 @@ const HomePage = () => {
         setEditedSolution={setEditedSolution}
         setOutput={setOutput}
       />
-    </div>
+    </React.Fragment>
   );
 };
 
