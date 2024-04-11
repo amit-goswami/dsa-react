@@ -1,5 +1,6 @@
 import Harkirat from "../pages/harkirat";
 import HomePage from "../pages/home";
+import MachineCodingRound from "../pages/machine-coding-round";
 
 const renderPageType = (selectedNavBarItem: number) => {
   switch (selectedNavBarItem) {
@@ -7,6 +8,8 @@ const renderPageType = (selectedNavBarItem: number) => {
       return <HomePage />;
     case 1:
       return <Harkirat />;
+    case 2:
+      return <MachineCodingRound />;
     default:
       return null;
   }

@@ -3,6 +3,7 @@ import { create } from "zustand";
 const navbarData = [
   { name: "Home", id: 0 },
   { name: "Harkirat", id: 1 },
+  { name: "Machine Coding Round", id: 2 },
 ];
 
 type AppState = {
