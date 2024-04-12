@@ -20,17 +20,26 @@ export const DateSelector = () => {
   const [selectedSlot, setSelectedSlot] = React.useState([
     {
       day: "Monday",
-      time: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      time: [0, 1],
     },
   ]);
 
   const handleDayChange = (e: { target: { value: string } }) => {
-    setSelectedTime(null);
     const day = e.target.value;
-    const dayInSelectedSlot = selectedSlot.find((slot) => slot.day === day);
-    if (dayInSelectedSlot) return alert("Day already selected");
-    setSelectedSlot([...selectedSlot, { day, time: [] }]);
+    const updatedSelectedSlot = selectedSlot.filter((slot) => {
+      return !(slot.day === day && slot.time.length === 0);
+    });
+    setSelectedSlot(updatedSelectedSlot);
     setSelectedDay(day);
+    setSelectedTime(null);
+
+    const dayInSelectedSlot = selectedSlot.find((slot) => slot.day === day);
+    if (dayInSelectedSlot) {
+      alert("Day already selected");
+      return;
+    }
+
+    setSelectedSlot([...selectedSlot, { day, time: [] }]);
   };
 
   const handleTimeChange = (e: { target: { value: string } }) => {
@@ -78,10 +87,10 @@ export const DateSelector = () => {
       {selectedSlot.map((slot) => (
         <div key={slot.day}>
           <h1>{slot.day}</h1>
-          <p>
+          <p className="time-slots">
             {slot.time.map((time) => {
               return (
-                <div>
+                <span key={time}>
                   {`${time} : ${time + 1}`}{" "}
                   <button
                     type="button"
@@ -89,7 +98,7 @@ export const DateSelector = () => {
                   >
                     Delete
                   </button>
-                </div>
+                </span>
               );
             })}
           </p>

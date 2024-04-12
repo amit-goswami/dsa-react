@@ -1,6 +1,10 @@
 import React from "react";
-import { ReactCarousel } from "../../components/machine-coding-round";
-import { DateSelector } from "../../components/machine-coding-round";
+import {
+  DateSelector,
+  ReactCarousel,
+  SequenceSelector,
+  TreeRenderer,
+} from "../../components/machine-coding-round";
 import withLoggedInOnly from "../../middlewares/withLoggedInOnly";
 
 const MachineCodingRound = () => {
@@ -8,6 +12,8 @@ const MachineCodingRound = () => {
     <React.Fragment>
       <ReactCarousel />
       <DateSelector />
+      <TreeRenderer />
+      <SequenceSelector />
     </React.Fragment>
   );
 };

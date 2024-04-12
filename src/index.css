@@ -78,6 +78,7 @@ input {
   width: 50vh;
   flex: 1;
   height: 75vh;
+  overflow-y: scroll;
 }
 
 .app__editor {
@@ -168,4 +169,48 @@ p {
   display: flex;
   padding: 10px 0px;
   gap: 20px;
+}
+
+.time-slots {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.tree-node {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tree-sub-node {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-left: 58px;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.box {
+  width: 30%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid var(--text-color);
+  cursor: pointer;
+}
+
+.box__selected {
+  background-color: green
+}
+
+.box__notSelected {
+  background-color: none;
 }
